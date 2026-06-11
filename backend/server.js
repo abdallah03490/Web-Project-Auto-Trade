@@ -20,6 +20,7 @@ try {
 // ============================================
 // CONFIGURATION
 // ============================================
+// Railway injects PORT at runtime. Fall back to 3000 for local development.
 const PORT = process.env.PORT || 3000;
 
 // ============================================
@@ -84,9 +85,10 @@ app.use((err, req, res, next) => {
 // ============================================
 // START SERVER
 // ============================================
-app.listen(PORT, () => {
-  console.log(`\n🚗 AutoTrade server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`\n🚗 AutoTrade server running on http://0.0.0.0:${PORT}`);
   console.log(`📦 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🔌 PORT env var: ${process.env.PORT || '(not set, using default 3000)'}`);
 });
 
 module.exports = app;
