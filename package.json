@@ -1,0 +1,11 @@
+{
+  "name": "autotrade",
+  "version": "1.0.0",
+  "description": "AutoTrade — Car Trading Platform",
+  "scripts": {
+    "start": "cd backend && npm install && npm start"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
