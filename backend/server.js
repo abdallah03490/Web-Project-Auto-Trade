@@ -10,7 +10,12 @@ const app = express();
 // ============================================
 // CONNECT TO MONGODB
 // ============================================
-connectDB();
+try {
+  connectDB();
+} catch (err) {
+  console.error(`❌ Unexpected error during DB init: ${err.message}`);
+  // Server continues to start regardless of DB connection failure
+}
 
 // ============================================
 // CONFIGURATION
